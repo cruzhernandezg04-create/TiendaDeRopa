@@ -1,0 +1,528 @@
+/* ── VARIABLES Y RESET ── */
+:root {
+  --negro: #0a0a0a;
+  --negro2: #111111;
+  --negro3: #1a1a1a;
+  --morado: #7F77DD;
+  --morado-claro: #AFA9EC;
+  --morado-opaco: rgba(127,119,221,0.12);
+  --blanco: #ffffff;
+  --texto: #cccccc;
+  --muted: #666666;
+  --borde: rgba(255,255,255,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--negro);
+  color: var(--texto);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borde);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: var(--blanco);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--blanco); }
+
+.nav-wa {
+  background: var(--morado);
+  color: var(--blanco) !important;
+  padding: 8px 20px !important;
+  transition: background 0.2s !important;
+}
+
+.nav-wa:hover {
+  background: var(--morado-claro) !important;
+  color: var(--negro) !important;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: 'TKX';
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40vw;
+  color: rgba(127,119,221,0.04);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  letter-spacing: 10px;
+}
+
+.hero-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--morado);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--morado);
+}
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 16vw, 180px);
+  letter-spacing: 12px;
+  color: var(--blanco);
+  line-height: 0.9;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 48px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── BOTONES ── */
+.btn-primary {
+  background: var(--morado);
+  color: var(--blanco);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s;
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  border-color: var(--morado);
+  color: var(--morado);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--texto);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid var(--borde);
+  transition: all 0.25s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--morado);
+  color: var(--morado);
+}
+
+/* ── LÍNEA SEPARADORA ── */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--morado), transparent);
+}
+
+/* ── CATÁLOGO ── */
+#catalogo {
+  padding: 100px 48px;
+  background: var(--negro2);
+}
+
+.seccion-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--morado);
+  margin-bottom: 10px;
+}
+
+.seccion-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: 4px;
+  color: var(--blanco);
+  margin-bottom: 40px;
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.filtros button {
+  background: transparent;
+  border: 1px solid var(--borde);
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filtros button:hover {
+  border-color: var(--morado);
+  color: var(--morado);
+}
+
+.filtros button.activo {
+  background: var(--morado);
+  border-color: var(--morado);
+  color: var(--blanco);
+}
+
+/* Grid productos */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Card producto */
+.producto {
+  background: var(--negro3);
+  border: 1px solid var(--borde);
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.producto:hover {
+  border-color: var(--morado);
+  transform: translateY(-4px);
+}
+
+.producto img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.producto:hover img { transform: scale(1.05); }
+
+.producto-info {
+  padding: 16px;
+}
+
+.producto-nombre {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--blanco);
+  margin-bottom: 4px;
+}
+
+.producto-tipo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.producto-precio {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: var(--morado);
+  margin-bottom: 14px;
+}
+
+/* Tallas */
+.tallas {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tallas button {
+  background: transparent;
+  border: 1px solid var(--borde);
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tallas button:hover {
+  border-color: var(--morado);
+  color: var(--morado);
+}
+
+.tallas button.seleccionada {
+  background: var(--morado);
+  border-color: var(--morado);
+  color: var(--blanco);
+}
+
+/* Botón pedir */
+.btn-pedir {
+  display: block;
+  text-align: center;
+  background: transparent;
+  border: 1px solid var(--morado);
+  color: var(--morado);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-pedir:hover {
+  background: var(--morado);
+  color: var(--blanco);
+}
+
+/* ── PEDIDO PERSONALIZADO ── */
+#personalizado {
+  padding: 100px 48px;
+  background: var(--negro);
+}
+
+.form-custom {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-custom label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: -12px;
+}
+
+.form-custom select,
+.form-custom textarea {
+  background: var(--negro3);
+  border: 1px solid var(--borde);
+  color: var(--texto);
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.form-custom select:focus,
+.form-custom textarea:focus {
+  border-color: var(--morado);
+}
+
+.form-custom textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.tallas-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.tallas-selector button {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--borde);
+  color: var(--muted);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tallas-selector button:hover {
+  border-color: var(--morado);
+  color: var(--morado);
+}
+
+.tallas-selector button.seleccionada {
+  background: var(--morado);
+  border-color: var(--morado);
+  color: var(--blanco);
+}
+
+#btn-custom-wa {
+  display: block;
+  text-align: center;
+  background: var(--morado);
+  color: var(--blanco);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 18px;
+  text-decoration: none;
+  transition: all 0.25s;
+  border: 2px solid transparent;
+  margin-top: 8px;
+}
+
+#btn-custom-wa:hover {
+  background: transparent;
+  border-color: var(--morado);
+  color: var(--morado);
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 48px;
+  border-top: 1px solid var(--borde);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: var(--morado);
+}
+
+footer p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--morado); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .productos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  #catalogo, #personalizado { padding: 70px 24px; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .productos-grid { grid-template-columns: 1fr; }
+}
